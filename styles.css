@@ -2,6 +2,29 @@
 body, h1, h2, p {
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style for the navigation bar */
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
 }
 
 /* Style for the header */
@@ -16,4 +39,10 @@ section {
     padding: 40px 20px;
 }
 
-/* Add more CSS as needed */
+/* Style for the footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+}
