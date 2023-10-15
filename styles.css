@@ -1,0 +1,19 @@
+/* Reset some default browser styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for the header */
+header {
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 20px 0;
+}
+
+/* Style for the sections */
+section {
+    padding: 40px 20px;
+}
+
+/* Add more CSS as needed */
