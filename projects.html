@@ -51,18 +51,32 @@
         <li>Testing and Debugging: Thoroughly testing the application to ensure functionality and performance under different scenarios was vital.</li>
     </ol>
             <video width="640" height="360" controls>
-                <source src="videos/Demo.mp4" type="video/mp4">
+                <source src="videos/Demo.mkv" type="video/mkv">
                 Your browser does not support the video tag.
             </video>
         </div>
         <div class="project">
             <h3>Room Reservation System        <a href="https://github.com/AmrElsaeed/CS50P-Final-Project">GitHub Repo</a> </h3>
-            <p>I developed a room reservation system capable of booking various types of spaces, such as seminar rooms or conference halls. The project was created individually using Python for the backend and the Tkinter library for the GUI. The system requires users to input and validate five parameters: name, room number, date, start time, and end time. Input validation ensures that only clean and correctly formatted data is accepted. Errors are communicated to the user through prompt messages.</p>
-            <p>The system's core functionality involves checking the availability of the specified room during the provided time slot. If the room is available, the system books it and records the booking details in a CSV file-based database. If the room is not available, an error message notifies the user of the time conflict.</p>
-            <p>To ensure the reliability of the system, I implemented comprehensive unit test cases for each function using the Pytest framework.</p>
-            <p>The choice of Python as the primary language was driven by its ease of implementation for this project.</p>
-            <p>During the development process, I encountered several challenges. Integrating the backend with the frontend was initially challenging, as I had developed the backend first and then integrated the GUI. In hindsight, I believe it would have been more efficient to begin with the frontend.</p>
-            <p>Another notable challenge arose during the process of checking room availability. I needed to extract start and end times from the CSV file and validate if the specified time slot intersected with any existing bookings. Overcoming this obstacle required working with the datetime library and converting data to time objects, which presented a considerable learning curve.</p>
+                 <h4>Description:</h4>
+                    <p>The room reservation system is a Python-based application with a Tkinter GUI, designed to facilitate bookings for various spaces, including seminar rooms and conference halls. The system ensures input validation for five parameters: name, room number, date, start time, and end time, accepting only properly formatted data and communicating errors through prompt messages. Its core functionality includes checking room availability during specific time slots, booking available rooms, and recording details in a CSV file-based database. Python was chosen for its ease of implementation, facilitating the development process.</p>
+                        <h4>Features:</h4>
+                            <ul>
+                                <li>Input validation for five parameters: name, room number, date, start time, and end time</li>
+                                <li>Dynamic room availability check during specified time slots</li>
+                                <li>CSV file-based database for recording booking details</li>
+                            </ul>
+            
+                <h4>Technologies Used:</h4>
+                    <ul>
+                        <li>Python: Backend development for the reservation system</li>
+                        <li>Tkinter: Python library for creating the graphical user interface</li>
+                    </ul>        
+                <h4>Challenges Faced:</h4>
+                    <ol>
+                    <li>Backend-Frontend Integration: Integrating the backend with the frontend posed initial challenges, prompting the realization that commencing with frontend development might have been more efficient.</li>
+                    <li>Room Availability Check: Extracting start and end times from the CSV file and validating overlapping time slots demanded extensive work with the datetime library and data conversion, presenting a significant learning curve.</li>
+                    </ol>
+
 
             <h4 class="text-center mb-4">Demo Video</h4>
             <div class="embed-responsive embed-responsive-16by9">
@@ -78,3 +92,4 @@
     </footer>
 </body>
 </html>
+
