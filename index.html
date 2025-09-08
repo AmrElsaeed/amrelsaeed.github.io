@@ -3,58 +3,397 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amr Ramadan's Website</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <title>Amr Ramadan | Site Reliability Engineer</title>
+    <style>
+        /* === Google Fonts & CSS Reset === */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@400;500;700&display=swap');
+
+        :root {
+            --primary-color: #007bff; /* A nice, modern blue */
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --background-color: #ffffff;
+            --text-color: #34495e;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        /* === General Styling === */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1, h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; text-align: center; }
+
+        section {
+            padding: 5rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === Header & Navigation === */
+        .header {
+            background-color: var(--background-color);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* === Hero Section === */
+        #hero {
+            padding-top: 10rem; /* Give space for fixed header */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            margin: 0 0.75rem;
+            color: var(--dark-color);
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Font Awesome CDN for icons - you can find other icons on fontawesome.com */
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+
+        /* === About Section === */
+        #about p {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* === Projects Section === */
+        #projects {
+            background-color: var(--light-color);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background-color: var(--background-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-tags {
+            margin: 1rem 0;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-right: 1.5rem;
+        }
+        
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* === Contact Section === */
+        #contact {
+            text-align: center;
+        }
+
+        #contact p {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3; /* Darker shade of primary color */
+        }
+        
+        /* === Footer === */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: var(--dark-color);
+            color: var(--light-color);
+        }
+        
+        /* === Responsive Design === */
+        @media(max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            
+            .navbar {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            #hero {
+                padding-top: 15rem; /* More space for stacked nav */
+            }
+        }
+
+    </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#about">Resume</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
 
-    <header>
-        <h1>Amr Ramadan</h1>
-        <p>Software Engineer</p>
-        <img src="images/Intro_Pic1.jpg" alt="Trouble viewing image" width="1000" height="900">
+    <header class="header">
+        <nav class="container navbar">
+            <a href="#hero" class="nav-logo">Amr Ramadan</a>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Greetings and welcome to my website!</p>
-        <p>I'm Amr Ramadan, a passionate and results-driven software engineer with a strong background in Full-stack development, I thrive on solving complex problems and creating efficient, user-friendly solutions. My journey in software engineering has led me to explore cutting-edge technologies like Python, C++,HTML/CSS, JavaScript, SQL, Linux, Dynatrace and Splunk , and I'm always eager to expand my skills further. I believe in the power of technology to transform ideas into reality, and I'm committed to making a meaningful impact in the ever-evolving world of software development.</p>
-<p>I'm currently pursuing a Master's degree in Computer Science at <a href="https://www.txst.edu/">Texas State University</a> in which I will be graduating in Fall 2023 Yay!; I'm also doing a co-op with <a href="https://www.netspend.com/">Netspend</a> 
-as an Application Performance Monitoring Engineer since May 2023, I have dealt with different tool kits and technologies to maintain deployed code and applications.</p>
-        <p>Feel free to explore my <a href="projects.html">projects</a> to gain insights into my technical capabilities and approach to problem-solving.</p>
-    </section>
-    <section id="Resume" class="container my-5">
-    <h2 class="text-center mb-4">Resume</h2>
-    <p class="text-center">Download my resume to learn more about my work experience and skills.</p>
-    <p class="text-center"><a href="other/Amr Ramadan Resume.pdf" download class="btn btn-primary btn-lg">Download Resume (PDF)</a></p>
-    <h3>Beyond my Resume</h3>
-        <video width="640" height="360" controls>
-        <source src="videos/Beyond my resume.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-        </video>
-    </section>
-   <section id="contact">
-    <h2>Contact</h2>
-    <p>Feel free to reach out to me:</p>
-    <ul class="contact-list">
-        <li><i class="fa fa-envelope"></i> Email: amr.ramadan@txstate.edu</li>
-        <li><i class="fa fa-phone"></i> Phone: 512-825-3414</li>
-        <li><i class="fab fa-github"></i> GitHub: <a href="https://github.com/AmrElsaeed" target="_blank">AmrElsaeed</a></li>
-        <li><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/amr-ramadan-/" target="_blank">Amr Ramadan</a></li>
-    </ul>
-</section>
 
+    <main>
+        <section id="hero" class="container">
+            <h1>Amr Ramadan</h1>
+            <p class="subtitle">Software Engineer & Researcher</p>
+            <div class="social-links">
+                <a href="https://github.com/amrelsaeed" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+        </section>
 
-    <footer>
-        <p>&copy; 2023 Amr Ramadan</p>
+        <section id="about" class="container reveal">
+            <h2>About Me</h2>
+            <p>
+                Hello! I'm Amr, a passionate software engineer and researcher with a focus on creating efficient, scalable, and user-friendly solutions. I have experience in full-stack development and a keen interest in machine learning and data science. I thrive on solving complex problems and am always eager to learn new technologies.
+            </p>
+        </section>
+
+        <section id="projects" class="reveal">
+            <div class="container">
+                <h2>My Projects</h2>
+                <div class="projects-grid">
+                    
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x250/007BFF/FFFFFF?text=Project+Image" alt="Project 1 Screenshot">
+                        <div class="project-content">
+                            <h3>Project Title One</h3>
+                            <p>A brief but compelling description of your project. Explain the problem it solves and its main features.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Django</span>
+                                <span class="tag">React</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" target="_blank">View Live</a>
+                                <a href="#" target="_blank">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x250/2C3E50/FFFFFF?text=Project+Image" alt="Project 2 Screenshot">
+                        <div class="project-content">
+                            <h3>Project Title Two</h3>
+                            <p>A brief but compelling description of your project. Explain the problem it solves and its main features.</p>
+                            <div class="project-tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">PostgreSQL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" target="_blank">View Live</a>
+                                <a href="#" target="_blank">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x250/34495E/FFFFFF?text=Project+Image" alt="Project 3 Screenshot">
+                        <div class="project-content">
+                            <h3>Project Title Three</h3>
+                            <p>A brief but compelling description of your project. Explain the problem it solves and its main features.</p>
+                            <div class="project-tags">
+                                <span class="tag">Research</span>
+                                <span class="tag">Data Analysis</span>
+                                <span class="tag">Python</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" target="_blank">Read Paper</a>
+                                <a href="#" target="_blank">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container reveal">
+            <h2>Get In Touch</h2>
+            <p>I'm currently open to new opportunities. If you have a project in mind or just want to say hello, feel free to reach out!</p>
+            <a href="mailto:your.email@example.com" class="btn">Say Hello</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Amr Ramadan. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in animation on scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Optional: stop observing once it's visible
+                    // revealObserver.unobserve(entry.target); 
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+        
+        // Add hero section manually as it's visible on load
+        document.querySelector('#hero').classList.add('visible');
+
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+    </script>
 </body>
 </html>
