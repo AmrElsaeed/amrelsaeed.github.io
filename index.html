@@ -107,7 +107,7 @@
         /* === Hero Section === */
         #hero {
             padding-top: 10rem; /* Give space for fixed header */
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -241,6 +241,10 @@
         }
         .btn:hover {
             background-color: #0056b3; /* Darker shade of primary color */
+        }
+
+        .btn + .btn {
+    margin-left: 1rem;
         }
         
         /* === Footer === */
