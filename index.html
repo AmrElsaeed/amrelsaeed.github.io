@@ -131,6 +131,14 @@
         .social-links a:hover {
             color: var(--primary-color);
         }
+        /* === Video Styling === */
+        #hero-video {
+            margin-top: 2rem; /* Adds space between the icons and the video */
+            border-radius: 8px; /* Gives the video slightly rounded corners */
+            box-shadow: var(--shadow); /* Adds a subtle shadow like the project cards */
+            max-width: 100%; /* Ensures the video shrinks on smaller screens */
+            height: auto; /* Maintains the aspect ratio */
+        }
         
         /* Font Awesome CDN for icons - you can find other icons on fontawesome.com */
         @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
@@ -259,6 +267,7 @@
         }
 
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
@@ -276,18 +285,22 @@
     <main>
         <section id="hero" class="container">
             <h1>Amr Ramadan</h1>
-            <p class="subtitle">Software Engineer & Researcher</p>
+            <p class="subtitle">Site Reliability Engineer</p>
             <div class="social-links">
                 <a href="https://github.com/amrelsaeed" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/amr-ramadan-/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 </div>
+                <video id="hero-video" autoplay loop muted playsinline width="600">
+                    <source src="videos/Beyond_my_resume.mp4 type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
         </section>
 
         <section id="about" class="container reveal">
             <h2>About Me</h2>
             <p>
-                Hello! I'm Amr, a passionate software engineer and researcher with a focus on creating efficient, scalable, and user-friendly solutions. I have experience in full-stack development and a keen interest in machine learning and data science. I thrive on solving complex problems and am always eager to learn new technologies.
+                Things break. Servers go down. Latency spikes. My job is to anticipate these failures and engineer solutions that keep services running smoothly and reliably. I'm a Site Reliability Engineer passionate about automation, performance, and building systems that heal themselves.
             </p>
         </section>
 
@@ -297,55 +310,39 @@
                 <div class="projects-grid">
                     
                     <div class="project-card">
-                        <img src="https://via.placeholder.com/400x250/007BFF/FFFFFF?text=Project+Image" alt="Project 1 Screenshot">
-                        <div class="project-content">
-                            <h3>Project Title One</h3>
-                            <p>A brief but compelling description of your project. Explain the problem it solves and its main features.</p>
-                            <div class="project-tags">
-                                <span class="tag">Python</span>
-                                <span class="tag">Django</span>
-                                <span class="tag">React</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" target="_blank">View Live</a>
-                                <a href="#" target="_blank">Source Code</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <img src="https://via.placeholder.com/400x250/2C3E50/FFFFFF?text=Project+Image" alt="Project 2 Screenshot">
-                        <div class="project-content">
-                            <h3>Project Title Two</h3>
-                            <p>A brief but compelling description of your project. Explain the problem it solves and its main features.</p>
-                            <div class="project-tags">
-                                <span class="tag">JavaScript</span>
-                                <span class="tag">Node.js</span>
-                                <span class="tag">PostgreSQL</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" target="_blank">View Live</a>
-                                <a href="#" target="_blank">Source Code</a>
+                        <div class="project-card">
+                            <div class="project-content">
+                                <h3>Web Search Engine</h3>
+                                <p>A custom search interface built with Flask that leverages the Bing Web Search API to deliver real-time results. Users can perform keyword searches and receive a clean, clickable list of titles and snippets.</p>
+                                <div class="project-tags">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">Flask</span>
+                                    <span class="tag">Bing API</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://youtu.be/huLc83x0LEw" target="_blank">View Live</a>
+                                    <a href="https://github.com/AmrElsaeed/Google-Search-Engine-Replica" target="_blank">Source Code</a>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="project-card">
-                        <img src="https://via.placeholder.com/400x250/34495E/FFFFFF?text=Project+Image" alt="Project 3 Screenshot">
                         <div class="project-content">
-                            <h3>Project Title Three</h3>
-                            <p>A brief but compelling description of your project. Explain the problem it solves and its main features.</p>
+                            <h3>Room Reservation System</h3>
+                            <p>A desktop application built with Python and Tkinter to manage room bookings. It features a user-friendly GUI, validates user input in real-time to prevent errors, and checks for scheduling conflicts before saving reservations to a CSV database.</p>
                             <div class="project-tags">
-                                <span class="tag">Research</span>
-                                <span class="tag">Data Analysis</span>
                                 <span class="tag">Python</span>
+                                <span class="tag">Tkinter</span>
+                                <span class="tag">GUI</span>
                             </div>
                             <div class="project-links">
-                                <a href="#" target="_blank">Read Paper</a>
-                                <a href="#" target="_blank">Source Code</a>
+                                <a href="https://www.youtube.com/embed/k82ndO7uVXY" target="_blank">View Live</a>
+                                <a href="https://github.com/AmrElsaeed/CS50P-Final-Project" target="_blank">Source Code</a>
                             </div>
                         </div>
                     </div>
+
 
                 </div>
             </div>
@@ -354,12 +351,13 @@
         <section id="contact" class="container reveal">
             <h2>Get In Touch</h2>
             <p>I'm currently open to new opportunities. If you have a project in mind or just want to say hello, feel free to reach out!</p>
-            <a href="mailto:your.email@example.com" class="btn">Say Hello</a>
+            <a href="mailto:amr.10.ramadan@gmail.com" class="btn">Say Hello</a>
+            <a href="other/Amr Ramadan Resume.pdf" target="_blank" class="btn">View Resume</a>
         </section>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2025 Amr Ramadan. All rights reserved.</p>
+        <p id="copyright">&copy; 2025 Amr Ramadan. All rights reserved.</p>
     </footer>
 
     <script>
@@ -394,6 +392,9 @@
         revealElements.forEach(element => {
             revealObserver.observe(element);
         });
+    </script>
+    <script>
+        document.getElementById("copyright").innerHTML = `&copy; ${new Date().getFullYear()} Amr Ramadan. All rights reserved.`;
     </script>
 </body>
 </html>
