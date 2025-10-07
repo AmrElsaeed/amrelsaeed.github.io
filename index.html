@@ -132,12 +132,25 @@
             color: var(--primary-color);
         }
         /* === Video Styling === */
-        #hero-video {
-            margin-top: 2rem; /* Adds space between the icons and the video */
-            border-radius: 8px; /* Gives the video slightly rounded corners */
-            box-shadow: var(--shadow); /* Adds a subtle shadow like the project cards */
-            max-width: 100%; /* Ensures the video shrinks on smaller screens */
-            height: auto; /* Maintains the aspect ratio */
+        /* === Responsive YouTube Video === */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
         
         /* Font Awesome CDN for icons - you can find other icons on fontawesome.com */
@@ -294,18 +307,16 @@
                 <a href="https://github.com/amrelsaeed" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/amr-ramadan-/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
              </div>
-                
-                <iframe 
-                id="hero-video"
-                width="600"
-                height="338"
-                src="https://www.youtube.com/embed/nThX1tfMVg8" 
+                <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/nThX1tfMVg8"
                 title="Beyond My Resume - Amr Ramadan"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                style="border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 100%; height: auto;">
-                </iframe>
+                allowfullscreen>
+              </iframe>
+            </div>
+            
         </section>
 
         <section id="about" class="container reveal">
